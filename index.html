@@ -955,6 +955,101 @@
       opacity: 1;
       transform: none;
     }
+
+/* sef edit */
+
+ /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+ 
+    .project-card {
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.28s ease;
+    }
+ 
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+ 
+    .project-image {
+      height: 240px;
+      background:
+        linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(34, 211, 238, 0.08)),
+        #0a1322;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7dd3fc;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+    }
+ 
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+ 
+    .project-body {
+      padding: 24px;
+    }
+ 
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+ 
+    .project-top h3 {
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+ 
+    .project-type {
+      font-size: 0.82rem;
+      color: #bfe9ff;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.08);
+      border: 1px solid rgba(34, 211, 238, 0.18);
+      white-space: nowrap;
+    }
+ 
+    .project-body p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+ 
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+ 
+    .project-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+ 
+    .project-links a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+ 
+    .project-links a:hover {
+      color: var(--white);
+    }
+
   </style>
 </head>
 
@@ -1079,24 +1174,17 @@
         <!-- Bio -->
         <div class="about-bio reveal">
           <p>
-            I'm a Senior Backend Developer and certified Zoho Developer with over 6 years of experience
-            building enterprise-grade systems. My core expertise lies in architecting REST APIs,
-            designing scalable databases, and automating business workflows using Zoho's Deluge scripting language.
+            I am a Zoho Developer with over 2 years of experience designing scalable, automated business systems. My expertise lies in streamlining complex processes using Zoho Creator, Zoho CRM, and Deluge scripting, 
+            turning manual workflows into efficient, automated pipelines that save time and reduce errors.
           </p>
           <p>
-            I specialize in bridging the gap between technical complexity and business clarity —
-            transforming messy manual processes into lean, automated pipelines that save real time and money.
-            I've delivered solutions for CRM, inventory management, HR automation, and custom reporting dashboards.
-          </p>
-          <p>
-            When I'm not coding, I'm writing technical documentation, mentoring junior developers,
-            or researching emerging backend technologies to stay ahead of the curve.
-          </p>
+            I specialize in bridging technical complexity and business needs, crafting solutions that not only work seamlessly but also scale as organizations grow. Beyond development,
+            I create clear technical documentation, mentor junior developers, and stay up-to-date on emerging tools and best practices to continuously enhance automation strategies.
+          </p>  
 
           <ul class="strengths">
-            <li class="strength-item">Zoho CRM, Creator & Analytics (Deluge scripting)</li>
-            <li class="strength-item">RESTful API design & third-party integrations</li>
-            <li class="strength-item">Database architecture (MySQL, PostgreSQL, MongoDB)</li>
+            <li class="strength-item">Zoho CRM, Creator, Deluge scripting</li>
+            <li class="strength-item">Third-party integrations</li>
             <li class="strength-item">Strong problem-solving and analytical mindset</li>
             <li class="strength-item">Clear communicator — technical & non-technical audiences</li>
           </ul>
@@ -1180,58 +1268,90 @@
   <!-- ============================================================
        PROJECTS SECTION
   ============================================================ -->
+ 
+ 
+ 
   <section id="projects" aria-label="Portfolio projects">
     <div class="container">
 
       <div class="section-head reveal">
         <span class="section-label">What I've Built</span>
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">A selection of backend systems and Zoho automation solutions I've delivered.</p>
+        <p class="section-subtitle">A selection of custom application and Zoho automation solutions I've delivered.</p>
       </div>
 
       <div class="projects-grid">
+
+<!-- <div class="projects-grid">
+        <article class="project-card glass">
+          <div class="project-image-slider">
+  <button class="slider-btn prev" onclick="changeSlide('img1', -1)">❮</button>
+ 
+  <img src="C:\Users\Admin\Downloads\2021 everest headings AIRCON.jpg" class="img1 active">
+  <img src="C:\Users\Admin\Downloads\2021 everest headings product line up.jpg" class="img1">
+ 
+  <button class="slider-btn next" onclick="changeSlide('img1', 1)">❯</button>
+</div>
+          <div class="project-body">
+            <div class="project-top">
+              <h3>Money Tracker</h3>
+              <span class="project-type">Web App</span>
+            </div>
+            <p>
+              A financial tracking web application that allows users to manage savings, debts, bills, and salary in one system. It features a configurable 2-week budget allowance (cutoff-based), enabling users to monitor spending, control expenses, and maintain financial discipline through structured tracking.
+            </p>
+            <div class="project-tech">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://jaspercanon11.github.io/Money_Tracker/" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </article> -->
+
+
 
         <!-- Project 1 -->
         <article class="project-card reveal" aria-label="Project: Zoho CRM Automation Suite">
           <div class="project-thumb" aria-hidden="true">⚙️</div>
           <div class="project-body">
-            <h3 class="project-title">Zoho CRM Automation Suite</h3>
+            <h3 class="project-title">Zoho CRM for Tracking of Lead Generation</h3>
             <p class="project-desc">
-              End-to-end CRM workflow automation for a mid-sized logistics firm. Built custom Deluge functions
-              for lead routing, SLA tracking, and automated follow-up sequences — reducing manual effort by 70%.
+              This project aims to implement Zoho CRM as a centralized system to capture, track, and manage all lead generation activities. 
+              The goal is to improve visibility of marketing and sales pipelines, increase conversion rates, and ensure no potential customer is missed.
             </p>
             <div class="project-tags">
               <span class="project-tag">Zoho CRM</span>
               <span class="project-tag">Deluge</span>
               <span class="project-tag">Zoho Flow</span>
-              <span class="project-tag">REST API</span>
             </div>
             <div class="project-links">
               <a href="#" class="btn btn-ghost" aria-label="View GitHub repository">⌥ GitHub</a>
-              <a href="#" class="btn btn-ghost" aria-label="View live demo">↗ Live Demo</a>
+              <!-- <a href="#" class="btn btn-ghost" aria-label="View live demo">↗ Live Demo</a> -->
             </div>
           </div>
         </article>
 
         <!-- Project 2 -->
         <article class="project-card reveal" aria-label="Project: Inventory Management API">
-          <div class="project-thumb" aria-hidden="true">📦</div>
+          <div class="project-thumb" aria-hidden="true">🖥️</div>
           <div class="project-body">
-            <h3 class="project-title">Inventory Management API</h3>
+            <h3 class="project-title">Zoho Creator Custom Application</h3>
             <p class="project-desc">
-              Scalable RESTful API backend for real-time inventory tracking, integrated with Zoho Creator
-              frontend. Handles multi-warehouse sync, low-stock alerts, and purchase order automation.
+              This project focuses on building a custom business application using Zoho Creator to digitize and automate internal processes. 
+              The application will replace manual spreadsheets and fragmented tools with a centralized, secure, and scalable system tailored to the organization’s workflow.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">PostgreSQL</span>
               <span class="project-tag">Zoho Creator</span>
-              <span class="project-tag">Docker</span>
+              <span class="project-tag">Deluge</span>
+
+            
             </div>
             <div class="project-links">
               <a href="#" class="btn btn-ghost" aria-label="View GitHub repository">⌥ GitHub</a>
-              <a href="#" class="btn btn-ghost" aria-label="View live demo">↗ Live Demo</a>
+              <!-- <a href="#" class="btn btn-ghost" aria-label="View live demo">↗ Live Demo</a> -->
             </div>
           </div>
         </article>
@@ -1240,20 +1360,18 @@
         <article class="project-card reveal" aria-label="Project: HR Onboarding Portal">
           <div class="project-thumb" aria-hidden="true">👥</div>
           <div class="project-body">
-            <h3 class="project-title">HR Onboarding Portal</h3>
+            <h3 class="project-title">Zoho People Setup for Attendance and Employee Records</h3>
             <p class="project-desc">
-              Custom Zoho Creator application for fully digital employee onboarding. Automated document
-              collection, e-signature workflows, IT provisioning triggers, and Zoho People integration.
+              This project focuses on implementing Zoho People to manage employee records, attendance, and leave management efficiently. 
+              The system will automate HR processes, improve data accuracy, and provide real-time insights into workforce management.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Zoho Creator</span>
               <span class="project-tag">Zoho People</span>
-              <span class="project-tag">Deluge</span>
               <span class="project-tag">Zoho Sign</span>
             </div>
             <div class="project-links">
               <a href="#" class="btn btn-ghost" aria-label="View GitHub repository">⌥ GitHub</a>
-              <a href="#" class="btn btn-ghost" aria-label="View live demo">↗ Live Demo</a>
+              <!-- <a href="#" class="btn btn-ghost"777 aria-label="View live demo">↗ Live Demo</a> -->
             </div>
           </div>
         </article>
@@ -1266,7 +1384,7 @@
   <!-- ============================================================
        EXPERIENCE SECTION — TIMELINE
   ============================================================ -->
-  <section id="experience" aria-label="Work experience">
+  <!-- <section id="experience" aria-label="Work experience">
     <div class="container">
 
       <div class="section-head reveal">
@@ -1275,10 +1393,10 @@
         <p class="section-subtitle">A track record of delivering backend systems and Zoho solutions across industries.</p>
       </div>
 
-      <div class="timeline">
+      <div class="timeline"> -->
 
         <!-- Job 1 -->
-        <div class="timeline-item reveal">
+        <!-- <div class="timeline-item reveal">
           <div class="timeline-meta">
             <span class="timeline-years">2024 — Present</span>
           </div>
@@ -1291,10 +1409,10 @@
             <li>Managed and integrated the Zoho ecosystem (Creator, CRM, and other apps) to ensure seamless data flow across departments</li>
             <li>Provided ongoing system support, enhancements, and user training to maximize platform utilization</li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- Job 2 -->
-        <div class="timeline-item reveal">
+        <!-- <div class="timeline-item reveal">
           <div class="timeline-meta">
             <span class="timeline-years">2021 — 2023</span>
           </div>
@@ -1305,7 +1423,7 @@
             <li>Created custom Zoho Creator apps replacing legacy Excel-based tracking systems.</li>
             <li>Reduced client reporting time by 80% through Zoho Analytics dashboard automation.</li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- Job 3 -->
         <!-- <div class="timeline-item reveal">
@@ -1359,7 +1477,7 @@
             <div class="contact-detail-icon" aria-hidden="true">💼</div>
             <div class="contact-detail-text">
               <strong>LinkedIn</strong>
-              <span>linkedin.com/in/yourname</span>
+              <span>linkedin.com/in/johnjosephrd.rodriguez</span>
             </div>
           </div>
           <div class="contact-detail">
@@ -1566,6 +1684,31 @@
     const emailInput  = document.getElementById('email');
     const msgInput    = document.getElementById('message');
     const successBanner = document.getElementById('form-success');
+  
+    /* ============================================================
+       SEF EDITS
+    ============================================================ */
+function sendData() {
+      const url = "https://docs.google.com/spreadsheets/d/1KXdHAw7zG2_P3M4dDIdRfkaZsyOY5ZNruTmKEjT4yQY/edit?gid=0#gid=0";
+
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(response => {
+        alert("Data sent successfully!");
+        console.log(response);
+      })
+      .catch(error => {
+        alert("Error sending data");
+        console.error(error);
+      });
+    }
+
 
     function showError(input, errId) {
       input.classList.add('error');
