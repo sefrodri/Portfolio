@@ -1554,7 +1554,7 @@
 
       </div>
     </div>
-  </section>
+  </section>  
 
 
   <!-- ============================================================
@@ -1691,31 +1691,6 @@
     const msgInput    = document.getElementById('message');
     const successBanner = document.getElementById('form-success');
   
-    /* ============================================================
-       SEF EDITS
-    ============================================================ */
-function sendData() {
-      const url = "https://docs.google.com/spreadsheets/d/1KXdHAw7zG2_P3M4dDIdRfkaZsyOY5ZNruTmKEjT4yQY/edit?gid=0#gid=0";
-
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(res => res.json())
-      .then(response => {
-        alert("Data sent successfully!");
-        console.log(response);
-      })
-      .catch(error => {
-        alert("Error sending data");
-        console.error(error);
-      });
-    }
-
-
     function showError(input, errId) {
       input.classList.add('error');
       document.getElementById(errId).classList.add('show');
@@ -1742,38 +1717,73 @@ function sendData() {
         : showError(msgInput, 'message-error');
     });
 
-    /* Submit handler */
-    form.addEventListener('submit', (e) => {
+    /* Google Apps Script web app endpoint */
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3W8jppqiKP_aWF9U2GKqWO7eOcTtuIrAu7HH6yHjGam_k9Rqk_Ss7cxL3Uj4J2jvtFA/exec";
+
+    /* Single submit handler: validate and send to Google Sheets */
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = msgInput.value.trim();
       let valid = true;
 
-      if (!nameInput.value.trim()) { showError(nameInput, 'name-error'); valid = false; }
-      else clearError(nameInput, 'name-error');
+      if (!name) {
+        showError(nameInput, 'name-error');
+        valid = false;
+      } else {
+        clearError(nameInput, 'name-error');
+      }
 
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-      if (!emailOk) { showError(emailInput, 'email-error'); valid = false; }
-      else clearError(emailInput, 'email-error');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError(emailInput, 'email-error');
+        valid = false;
+      } else {
+        clearError(emailInput, 'email-error');
+      }
 
-      if (!msgInput.value.trim()) { showError(msgInput, 'message-error'); valid = false; }
-      else clearError(msgInput, 'message-error');
+      if (!message) {
+        showError(msgInput, 'message-error');
+        valid = false;
+      } else {
+        clearError(msgInput, 'message-error');
+      }
 
       if (!valid) return;
 
-      /* Simulate submission — replace with real endpoint as needed */
       const submitBtn = form.querySelector('[type="submit"]');
-      submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      successBanner.classList.remove('show');
 
-      setTimeout(() => {
-        form.reset();
-        submitBtn.textContent = 'Send Message →';
-        submitBtn.disabled = false;
+      try {
+        const formData = new URLSearchParams({ name, email, message });
+
+        // Apps Script is sent in no-cors mode, so its response cannot be read.
+        // A successful fetch does not prove the row was saved; verify in Sheets.
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        });
+
+        successBanner.textContent =
+          'Your message was sent. If you do not hear back, please email me directly.';
         successBanner.classList.add('show');
-        setTimeout(() => successBanner.classList.remove('show'), 5000);
-      }, 1200);
+        form.reset();
+      } catch (error) {
+        console.error('Contact form submission failed:', error);
+        successBanner.textContent =
+          'Unable to send your message. Please try again or email me directly.';
+        successBanner.classList.add('show');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+      }
     });
-
   </script>
-
+ 
+  
 </body>
 </html>
